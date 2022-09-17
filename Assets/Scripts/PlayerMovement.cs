@@ -171,13 +171,26 @@ public class PlayerMovement : MonoBehaviour
 
             player.velocity = temp;
         }
+        if (collision.gameObject.tag == "KillerObj")
+        {
+            Kill();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Kill" && !collision.gameObject.GetComponentInParent<PhotonView>().IsMine)
         {
-            transform.position = startPos;
+            Kill();
         }
+        if (collision.gameObject.tag == "KillerObj")
+        {
+            Kill();
+        }
+    }
+
+    void Kill() 
+    {
+        transform.position = startPos;
     }
 }

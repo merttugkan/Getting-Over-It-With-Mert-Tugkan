@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LoadTurn : MonoBehaviour
 {
-
-    void Update()
+    public float rotateAmount;
+    void FixedUpdate()
     {
-        transform.Rotate(0,0,1);
+        transform.Rotate(0,0, rotateAmount);
     }
 }

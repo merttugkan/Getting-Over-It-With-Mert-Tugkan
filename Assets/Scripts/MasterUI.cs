@@ -120,8 +120,13 @@ public class MasterUI : MonoBehaviour
         CopiedTheCode.SetActive(false);
     }
 
+
+    public TMP_Text playerCount;
     private void FixedUpdate()
     {
         InsPlayerName();
+
+        playerCount.text = PhotonNetwork.CountOfPlayers.ToString();
+
     }
 }

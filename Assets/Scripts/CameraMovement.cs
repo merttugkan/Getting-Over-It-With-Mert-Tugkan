@@ -18,9 +18,9 @@ public class CameraMovement : MonoBehaviour
         {
             temp = 1;
         }
-        else if (temp > 50)
+        else if (temp > 40)
         {
-            temp = 25;
+            temp = 40;
         }
         myCam.orthographicSize = temp;
 
