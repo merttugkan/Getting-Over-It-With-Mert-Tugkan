@@ -15,8 +15,6 @@ public class MasterUI : MonoBehaviour
     [Header("Prefab")]
     public GameObject userUIPrefab;
 
-    [Header("LobbyParent")]
-    public GameObject LobbyParent;
 
     // Start is called before the first frame update
     void Start()
@@ -122,9 +120,22 @@ public class MasterUI : MonoBehaviour
 
 
     public TMP_Text playerCount;
+
+    public TMP_Text[] playerNames;
     private void FixedUpdate()
     {
         InsPlayerName();
+
+        int a = 0;
+        foreach (Photon.Realtime.Player item in PhotonNetwork.PlayerList)
+        {
+            playerNames[a].text = item.NickName;
+            a++;
+        }
+        for (; a < 10; a++)
+        {
+            playerNames[a].text = string.Empty;
+        }
 
         playerCount.text = PhotonNetwork.CountOfPlayers.ToString();
 
