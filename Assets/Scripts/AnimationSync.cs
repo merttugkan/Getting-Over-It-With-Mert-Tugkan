@@ -13,11 +13,11 @@ public class AnimationSync : MonoBehaviour
 
     void Update()
     {
-        
-
         if (anim.transform.position.y > 0.1f)
         {
             controller.SetBool("Walking", true);
+
+            
             if (anim.transform.position.x < 0)
             {
                 myrenderer.flipX = true;
